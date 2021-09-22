@@ -1,5 +1,4 @@
 
-
 access(all) contract HelloWorld {
     pub resource interface HasCount {
         pub count: Int

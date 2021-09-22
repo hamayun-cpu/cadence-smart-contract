@@ -19,5 +19,11 @@
 			"key": "691d65be6bf2a38a5f787c6b741bce119ad70977db77ca1d9b7ea6cb1bc3ede3"
 		}
 	},
-	"deployments": {}
+	"deployments": {
+		"emulator": {
+      "emulator-account": [
+        "HelloWorld"
+      ]
+    }
+	}
 }
