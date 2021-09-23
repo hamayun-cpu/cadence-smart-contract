@@ -1,6 +1,5 @@
-import HelloWorld from "../contracts/helloworld"
 
-
-pub fun main(): Int {
-	log(HelloWorld.hello())
+pub fun main(): String {
+	return "hi"
 }
+ 
