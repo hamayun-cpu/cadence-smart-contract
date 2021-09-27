@@ -6,7 +6,7 @@
     }
   },
   "contracts": {
-    "HelloWorld": "./cadence/contracts/helloworld.cdc"
+    "ExampleToken": "./cadence/contracts/ExampleToken.cdc"
   },
   "networks": {
     "emulator": "127.0.0.1:3569",
@@ -21,7 +21,7 @@
   },
   "deployments": {
     "emulator": {
-      "emulator-account": ["HelloWorld"]
+      "emulator-account": ["ExampleToken"]
     }
   }
 }
