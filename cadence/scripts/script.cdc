@@ -1,19 +1,19 @@
-import ExampleToken from 0xf8d6e0586b0a20c7
-pub fun main():UFix64 {
-    // Get the accounts' public account objects
-    let acct1 = getAccount(0xf8d6e0586b0a20c7)
+import ExampleNFT from 0xf8d6e0586b0a20c7
 
-    // Get references to the account's receivers
-    // by getting their public capability
-    // and borrowing a reference from the capability
-    let acct1ReceiverRef = acct1.getCapability<&ExampleToken.Vault{ExampleToken.Balance}>(/public/MainReceiver)
-        .borrow()
-        ?? panic("Could not borrow a reference to the acct1 receiver")
+// Print the NFTs owned by account 0x02.
+pub fun main(): [UInt64] {
+    // Get the public account object for account 0x02
+    let nftOwner = getAccount(0xf8d6e0586b0a20c7)
 
-   
+    // Find the public Receiver capability for their Collection
+    let capability = nftOwner.getCapability<&{ExampleNFT.NFTReceiver}>(/public/NFTReceiver)
 
-    // Read and log balance fields
-    log("Account 1 Balance")
-    return(acct1ReceiverRef.balance)
+    // borrow a reference from the capability
+    let receiverRef = capability.borrow()
+        ?? panic("Could not borrow the receiver reference")
 
+    // Log the NFTs that they own as an array of IDs
+    log("Account 2 NFTs")
+    return receiverRef.getIDs()
 }
+ 
